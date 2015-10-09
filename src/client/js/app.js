@@ -542,6 +542,8 @@ function setupSocket(socket) {
 
     // Chat
     socket.on('serverSendPlayerChat', function (data) {
+        console.log('Just received');
+        console.log(data);
         chat.addChatLine(data.sender, data.message, false);
     });
 
@@ -906,4 +908,3 @@ function resize() {
     player.screenHeight = c.height = screenHeight = playerType == 'player' ? window.innerHeight : gameHeight;
     socket.emit('windowResized', { screenWidth: screenWidth, screenHeight: screenHeight });
 }
-
